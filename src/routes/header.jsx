@@ -15,7 +15,7 @@ const AppHeader = () => {
             {/* Navigation */}
             <nav className="hidden md:flex items-center space-x-6 text-sm">
                 <Link to="/" className="hover:text-blue-400 transition">Dashboard</Link>
-                <Link to="/contacts/1" className="hover:text-blue-400 transition">contacts</Link>
+                <Link to="/contacts" className="hover:text-blue-400 transition">Contacts</Link>
                 <Link to="/sales" className="hover:text-blue-400 transition">Sales</Link>
             </nav>
 

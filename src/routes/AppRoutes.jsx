@@ -11,22 +11,23 @@ const AppRouter = createBrowserRouter([
         errorElement: <ErrorPage />,
         children: [
             {
-                path: "contacts/:contactId",
-                element: <Contact />,
-                errorElement: <ErrorPage />,
-            },{
-                path: "sales",
+                path: "/sales",
                 element: <SalesScreen />,
                 errorElement: <ErrorPage />,
+            },
+            {
+                path: '/contacts',
+                element: <Contact />,
+                errorElement: <ErrorPage />,
+
             }
         ]
-    },
-    {
-        path: '/contacts',
-        element: <Root />,
-        errorElement: <ErrorPage />,
-
     }
+    // {
+    //     path: "contacts/:contactId",
+    //     element: <Contact />,
+    //     errorElement: <ErrorPage />,
+    // }
 ]);
 
 

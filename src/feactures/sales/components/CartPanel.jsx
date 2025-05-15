@@ -1,28 +1,31 @@
 import React from 'react';
+import CardItemList from "./CartItemsList.jsx";
 
 const CartPanel = () => {
     return (
-        <aside className="w-full md:w-full p-4 bg-gray-50 border-l border-gray-200 flex flex-col h-full">
-            <h2 className="text-lg font-semibold mb-4">🛒 Current Sale</h2>
+        <aside className="flex flex-col h-full w-full max-h-screen p-1 bg-gray-50 border-l border-gray-200 ">
+
+            <div className="pb-2 bg-orange-100 h-[5%]">
+                <h2 className="text-lg font-semibold ">🛒 Current Sale</h2>
+            </div>
+
 
             {/* Cart Items List */}
-            <div className="flex-1 overflow-y-auto space-y-3">
-                <div className="flex justify-between items-center border-b pb-2">
-                    <div>
-                        <p className="font-medium">Espresso</p>
-                        <p className="text-sm text-gray-600">Qty: 2</p>
-                    </div>
-                    <div className="text-right">
-                        <p className="font-semibold">$5.00</p>
-                        <button className="text-xs text-red-500 hover:underline">Remove</button>
-                    </div>
-                </div>
-
+            <div className="h-[50%] overflow-y-auto  space-y-3">
+                {
+                    Array.from({ length:30 }).map((_, i) => (
+                        <CardItemList key={i} productName={"Pica Pollo 3 Piezas"} qty={3} price={5} />
+                    ))
+                }
                 {/* Add more items dynamically later */}
             </div>
 
+
+
             {/* Totals */}
-            <div className="mt-6 border-t pt-4 space-y-2 text-sm">
+            <div className="flex-1 mt-4 border-t border-b-blue-950  pt-1 space-y-1 text-sm ">
+
+
                 <div className="flex justify-between">
                     <span>Subtotal</span>
                     <span>$10.00</span>
@@ -44,12 +47,12 @@ const CartPanel = () => {
                 />
 
                 {/* Checkout Button */}
-                <button className="w-full mt-4 bg-green-600 text-white py-2 rounded hover:bg-green-700 text-sm">
+                <button className="w-full mt-2 bg-green-600 text-white py-2 rounded hover:bg-green-700 text-sm">
                     Proceed to Checkout
                 </button>
 
                 {/* Quick Actions */}
-                <div className="mt-4 flex justify-between gap-2">
+                <div className="mt-2 flex justify-between gap-2">
                     <button className="w-full bg-yellow-500 text-white py-2 rounded hover:bg-yellow-600 text-sm">
                         Hold Sale
                     </button>
@@ -57,6 +60,7 @@ const CartPanel = () => {
                         Clear
                     </button>
                 </div>
+
             </div>
         </aside>
     );
