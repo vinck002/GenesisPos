@@ -1,9 +1,17 @@
 // src/features/sales/pages/SalesScreen.jsx
 import React from 'react';
 import CartPanel from "../components/CartPanel.jsx";
-import ProductGrid from "../components/ProductGrid.jsx";
+import ProductsList from "../components/PosProductList.jsx";
+import useProducts from "../hooks/useProducts.js";
 
 const SalesScreen = () => {
+
+    const {products,loading, error} = useProducts();
+
+    if (loading) return <p>Loading products...</p>;
+    if (error) return <p>Error loading products...</p>;
+
+
     return (
         <div className="flex flex-col h-screen h-screen max-h-screen">
 
@@ -23,8 +31,8 @@ const SalesScreen = () => {
                     </div>
                         {/* Product Grid (Placeholder) */}
                         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                            {Array.from({ length:30 }).map((_, i) => (
-                                <ProductGrid i={i} productName={"Pico y pala"} price={10.00} />
+                            {products.map((product, i) => (
+                                <ProductsList key={i} product={product} />
 
                             ))}
                         </div>
