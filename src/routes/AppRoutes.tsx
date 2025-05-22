@@ -1,8 +1,8 @@
 import {Routes, Route, createBrowserRouter} from 'react-router-dom'
-import Root from "./root.jsx";
-import ErrorPage from "../shared/pages/notFoundError.jsx";
-import Contact from "../shared/pages/contacts.jsx";
-import SalesScreen from "../feactures/sales/pages/SalesScreem.jsx";
+import Root from "./root";
+import ErrorPage from "../shared/pages/notFoundError.tsx";
+import Contact from "../shared/pages/contacts.tsx";
+import SalesScreen from "../feactures/sales/pages/SalesScreem";
 
 const AppRouter = createBrowserRouter([
     {

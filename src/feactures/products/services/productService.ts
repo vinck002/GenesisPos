@@ -1,5 +1,7 @@
 // Simulate an API or fetch from local data
-export const getProducts = async () => {
+import {ProductEntity} from "../../types/productType";
+
+export const getProducts = async () : Promise<ProductEntity[]>   => {
     // Simulated delay (you can remove for real API)
     await new Promise(res => setTimeout(res, 500));
 

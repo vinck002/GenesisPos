@@ -1,12 +1,15 @@
 // src/features/sales/pages/SalesScreen.jsx
 import React from 'react';
-import CartPanel from "../components/CartPanel.jsx";
-import ProductsList from "../components/PosProductList.jsx";
-import useProducts from "../hooks/useProducts.js";
+// @ts-ignore
+import GeneralCartPanel from "../components/GeneralCartPanel";
+import ProductsList from "../components/PosProductList";
+import useProducts from "../hooks/useProducts";
+import useCartStore from "../store/useCartStore";
 
 const SalesScreen = () => {
 
     const {products,loading, error} = useProducts();
+
 
     if (loading) return <p>Loading products...</p>;
     if (error) return <p>Error loading products...</p>;
@@ -32,8 +35,7 @@ const SalesScreen = () => {
                         {/* Product Grid (Placeholder) */}
                         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                             {products.map((product, i) => (
-                                <ProductsList key={i} product={product} />
-
+                                <ProductsList key={i} name={product.name} id={product.id} price={product.price} />
                             ))}
                         </div>
 
@@ -41,7 +43,7 @@ const SalesScreen = () => {
 
                 {/* Cart / Checkout */}
                 <aside className="w-1/3 p-2 m-0  bg-gray-50  h-full">
-                    <CartPanel />
+                    <GeneralCartPanel />
                 </aside>
             </div>
 

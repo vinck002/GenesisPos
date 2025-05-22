@@ -1,11 +1,13 @@
 import {useEffect, useState} from "react";
-import {getProducts} from "../../products/services/productService.js";
+
+import {ProductEntity} from "../../types/productType";
+import {getProducts} from "../../products/services/productService";
 
 
 const useProducts = () =>{
-    const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState(null);
+    const [products, setProducts] = useState<ProductEntity[]>([]);
+    const [loading, setLoading] = useState<boolean>(true)
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
 
@@ -20,7 +22,7 @@ const useProducts = () =>{
             }
         };
 
-        fetchProducts();
+       fetchProducts();
     }, []);
 
     return {

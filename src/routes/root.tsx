@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Footer from "./footer.jsx";
-import RightSide from "./rightSide.jsx";
-import MainContent from "./MainContent.jsx";
-import AppHeader from "./header.jsx";
+import Footer from "./footer.tsx";
+import RightSide from "./rightSide.tsx";
+import MainContent from "./MainContent.tsx";
+import AppHeader from "./header.tsx";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi"; // optional
 
 export default function AppRoot() {

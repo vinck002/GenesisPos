@@ -1,7 +1,11 @@
 import React from "react";
+import useCartStore from "../store/useCartStore";
 
 
-const CardItemList = ({ productName, qty, price }) => {
+// @ts-ignore
+const CardItemList = ({ itenId,productName, qty, price }) => {
+    const { removeItem } = useCartStore();
+
     const total = (price * qty).toFixed(2);
 
     return (
@@ -18,8 +22,7 @@ const CardItemList = ({ productName, qty, price }) => {
                 <p className="font-semibold text-gray-800">${total}</p>
                 <button
                     className="text-xs text-red-500 hover:underline"
-                    aria-label={`Remove ${productName}`}
-                >
+                    onClick={() => removeItem(itenId)}>
                     Remove
                 </button>
             </div>
